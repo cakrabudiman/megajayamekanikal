@@ -18,20 +18,7 @@ project/
 └── .gitignore
 ```
 
-## Run locally
 
-From the project root, serve the folder with a local web server:
-
-```bash
-cd c:/Users/finan/Cakra/testing
-python -m http.server 8000
-```
-
-Then open this in your browser:
-
-```text
-http://localhost:8000
-```
 
 ## Notes
 
