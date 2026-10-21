@@ -5,11 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const navLinks = document.querySelectorAll('.nav-link');
   const backToTop = document.querySelector('.back-to-top');
   const revealItems = document.querySelectorAll('.reveal');
-  const modal = document.getElementById('productModal');
-  const modalTitle = document.getElementById('modalTitle');
-  const modalText = document.getElementById('modalText');
-  const productButtons = document.querySelectorAll('.product-detail');
-  const modalClose = document.querySelector('.modal-close');
   const currentYear = document.getElementById('currentYear');
 
   // Update footer year
@@ -89,48 +84,5 @@ document.addEventListener('DOMContentLoaded', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
-
-  // Product modal
-  const openModal = (title, text) => {
-    if (!modal || !modalTitle || !modalText) return;
-    modalTitle.textContent = title;
-    modalText.textContent = text;
-    modal.classList.add('visible');
-    modal.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-  };
-
-  const closeModal = () => {
-    if (!modal) return;
-    modal.classList.remove('visible');
-    modal.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-  };
-
-  productButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-      const title = button.dataset.title || 'Detail Produk';
-      const text = button.dataset.text || 'Informasi lengkap tentang produk ini.';
-      openModal(title, text);
-    });
-  });
-
-  if (modalClose) {
-    modalClose.addEventListener('click', closeModal);
-  }
-
-  if (modal) {
-    modal.addEventListener('click', (event) => {
-      if (event.target instanceof HTMLElement && event.target.dataset.close === 'true') {
-        closeModal();
-      }
-    });
-  }
-
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && modal && modal.classList.contains('visible')) {
-      closeModal();
-    }
-  });
 
 });
