@@ -26,7 +26,7 @@
           <a href="../artikel/index.html">Artikel</a>
           <a href="../kontak/index.html">Kontak</a>
         </div>
-        <a class="product-page-back" href="index.html">← Kembali ke produk</a>
+        <a class="product-page-back" href="index.html"><span class="link-arrow" aria-hidden="true">&lt;</span> Kembali ke produk</a>
       </nav>
     </header>
     <main class="product-page-main">
@@ -36,6 +36,21 @@
           <span class="eyebrow">Produk</span>
           <h1>Steel Walkway</h1>
           <p>Jalur akses besi yang kokoh dan aman untuk memudahkan pergerakan di area kerja maupun sekitar mesin, dirancang mengikuti kondisi lokasi.</p>
+        </div>
+      </section>
+      <section class="product-page-section product-gallery-section">
+        <h2 class="product-gallery-title">Walkway Detail</h2>
+        <h3 class="product-gallery-subtitle">Besi Siku 35x35 600x500</h3>
+        <div class="product-gallery" data-product-gallery aria-label="Galeri foto Steel Walkway">
+          <button class="product-gallery-item" type="button" data-gallery-index="0" aria-label="Perbesar foto steel walkway">
+            <img src="../../assets/images/walkway.jpg" alt="Permukaan steel walkway" />
+          </button>
+          <button class="product-gallery-item" type="button" data-gallery-index="1" aria-label="Perbesar foto walkway industri dengan railing">
+            <img src="../../assets/images/download.jpg" alt="Walkway industri dengan railing pengaman" />
+          </button>
+          <button class="product-gallery-item" type="button" data-gallery-index="2" aria-label="Perbesar foto walkway dan railing di area fasilitas">
+            <img src="../../assets/images/head.jpg" alt="Walkway dan railing di area fasilitas" />
+          </button>
         </div>
       </section>
       <section class="product-page-section">
@@ -59,5 +74,23 @@
         <a class="btn btn-primary" href="https://wa.me/6281234567890" target="_blank" rel="noopener">Konsultasi via WhatsApp</a>
       </section>
     </main>
+    <dialog class="product-lightbox" aria-label="Galeri foto produk">
+      <div class="product-lightbox-toolbar">
+        <p class="product-lightbox-count" aria-live="polite"></p>
+        <button class="product-lightbox-control product-lightbox-close" type="button" aria-label="Tutup galeri">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18" /></svg>
+        </button>
+      </div>
+      <div class="product-lightbox-stage">
+        <button class="product-lightbox-control product-lightbox-nav product-lightbox-prev" type="button" aria-label="Foto sebelumnya">
+          <span aria-hidden="true">&lt;</span>
+        </button>
+        <img class="product-lightbox-image" alt="" />
+        <button class="product-lightbox-control product-lightbox-nav product-lightbox-next" type="button" aria-label="Foto berikutnya">
+          <span aria-hidden="true">&gt;</span>
+        </button>
+      </div>
+    </dialog>
+    <script src="../../js/script.js"></script>
   </body>
 </html>

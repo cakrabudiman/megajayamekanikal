@@ -52,5 +52,6 @@ http://localhost:8000
 - The Beranda page contains the company profile and advantages, while the Produk page links each catalog item to its own detail page.
 - The Kontak page contains company contact information, a location map, and direct WhatsApp links.
 - The Artikel page lists three articles as cards, each opening a separate article page.
+- Each product detail page includes a photo gallery with a full-size viewer, arrow-key navigation, and swipe support.
 - Menu pages are grouped under `pages/produk`, `pages/kontak`, and `pages/artikel`; shared assets, styles, and scripts stay in their root folders.
 - Images use trusted remote photo sources suitable for a professional steel and industrial company presentation.

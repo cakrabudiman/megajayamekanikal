@@ -6,6 +6,76 @@ document.addEventListener('DOMContentLoaded', () => {
   const backToTop = document.querySelector('.back-to-top');
   const revealItems = document.querySelectorAll('.reveal');
   const currentYear = document.getElementById('currentYear');
+  const lightbox = document.querySelector('.product-lightbox');
+
+  if (lightbox) {
+    const galleryItems = [...document.querySelectorAll('[data-product-gallery] .product-gallery-item')];
+    const lightboxImage = lightbox.querySelector('.product-lightbox-image');
+    const lightboxCount = lightbox.querySelector('.product-lightbox-count');
+    const closeButton = lightbox.querySelector('.product-lightbox-close');
+    let activeIndex = 0;
+    let pointerStartX = null;
+    let opener = null;
+
+    const showImage = (index) => {
+      activeIndex = (index + galleryItems.length) % galleryItems.length;
+      const thumbnail = galleryItems[activeIndex].querySelector('img');
+      lightboxImage.src = thumbnail.currentSrc || thumbnail.src;
+      lightboxImage.alt = thumbnail.alt;
+      lightboxCount.textContent = `${activeIndex + 1} / ${galleryItems.length}`;
+    };
+
+    galleryItems.forEach((item, index) => {
+      item.addEventListener('click', () => {
+        opener = item;
+        showImage(index);
+        lightbox.showModal();
+        closeButton.focus();
+      });
+    });
+
+    lightbox.querySelector('.product-lightbox-prev').addEventListener('click', () => {
+      showImage(activeIndex - 1);
+    });
+
+    lightbox.querySelector('.product-lightbox-next').addEventListener('click', () => {
+      showImage(activeIndex + 1);
+    });
+
+    closeButton.addEventListener('click', () => lightbox.close());
+
+    lightbox.addEventListener('close', () => {
+      pointerStartX = null;
+      if (opener) opener.focus();
+    });
+
+    lightbox.addEventListener('click', (event) => {
+      if (event.target === lightbox) lightbox.close();
+    });
+
+    lightbox.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowLeft') {
+        event.preventDefault();
+        showImage(activeIndex - 1);
+      } else if (event.key === 'ArrowRight') {
+        event.preventDefault();
+        showImage(activeIndex + 1);
+      }
+    });
+
+    const lightboxStage = lightbox.querySelector('.product-lightbox-stage');
+    lightboxStage.addEventListener('pointerdown', (event) => {
+      if (event.target === lightboxImage) pointerStartX = event.clientX;
+    });
+
+    lightboxStage.addEventListener('pointerup', (event) => {
+      if (pointerStartX === null) return;
+      const swipeDistance = event.clientX - pointerStartX;
+      pointerStartX = null;
+      if (Math.abs(swipeDistance) < 45) return;
+      showImage(activeIndex + (swipeDistance < 0 ? 1 : -1));
+    });
+  }
 
   // Update footer year
   if (currentYear) {

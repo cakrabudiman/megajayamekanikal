@@ -26,7 +26,7 @@
           <a href="../artikel/index.html">Artikel</a>
           <a href="../kontak/index.html">Kontak</a>
         </div>
-        <a class="product-page-back" href="index.html">← Kembali ke produk</a>
+        <a class="product-page-back" href="index.html"><span class="link-arrow" aria-hidden="true">&lt;</span> Kembali ke produk</a>
       </nav>
     </header>
     <main class="product-page-main">
@@ -36,6 +36,18 @@
           <span class="eyebrow">Produk</span>
           <h1>Guardrail</h1>
           <p>Pagar pengaman besi untuk membantu melindungi pekerja di jalur akses dan area kerja yang berisiko, dengan ukuran yang disesuaikan lokasi.</p>
+        </div>
+      </section>
+      <section class="product-page-section product-gallery-section">
+        <h2 class="product-gallery-title">Guardrail Detail</h2>
+        <h3 class="product-gallery-subtitle">Railing Besi untuk Area Industri</h3>
+        <div class="product-gallery" data-product-gallery aria-label="Galeri foto Guardrail">
+          <button class="product-gallery-item" type="button" data-gallery-index="0" aria-label="Perbesar foto guardrail area industri">
+            <img src="../../assets/images/guardrail.jpg" alt="Guardrail pada area industri" />
+          </button>
+          <button class="product-gallery-item" type="button" data-gallery-index="1" aria-label="Perbesar foto pembatas pengaman fasilitas">
+            <img src="../../assets/images/head.jpg" alt="Pembatas pengaman di area fasilitas" />
+          </button>
         </div>
       </section>
       <section class="product-page-section">
@@ -59,5 +71,23 @@
         <a class="btn btn-primary" href="https://wa.me/6281234567890" target="_blank" rel="noopener">Konsultasi via WhatsApp</a>
       </section>
     </main>
+    <dialog class="product-lightbox" aria-label="Galeri foto produk">
+      <div class="product-lightbox-toolbar">
+        <p class="product-lightbox-count" aria-live="polite"></p>
+        <button class="product-lightbox-control product-lightbox-close" type="button" aria-label="Tutup galeri">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18" /></svg>
+        </button>
+      </div>
+      <div class="product-lightbox-stage">
+        <button class="product-lightbox-control product-lightbox-nav product-lightbox-prev" type="button" aria-label="Foto sebelumnya">
+          <span aria-hidden="true">&lt;</span>
+        </button>
+        <img class="product-lightbox-image" alt="" />
+        <button class="product-lightbox-control product-lightbox-nav product-lightbox-next" type="button" aria-label="Foto berikutnya">
+          <span aria-hidden="true">&gt;</span>
+        </button>
+      </div>
+    </dialog>
+    <script src="../../js/script.js"></script>
   </body>
 </html>
