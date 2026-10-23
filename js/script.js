@@ -30,8 +30,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     navLinks.forEach((link) => {
-      const isActive = currentSection && link.getAttribute('href') === `#${currentSection.id}`;
-      link.classList.toggle('active', Boolean(isActive));
+      const href = link.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        const isActive = currentSection && href === `#${currentSection.id}`;
+        link.classList.toggle('active', Boolean(isActive));
+      } else if (document.querySelector('main #home') && href === 'index.html') {
+        link.classList.toggle('active', Boolean(currentSection && currentSection.id === 'home'));
+      }
     });
   };
 
@@ -41,9 +46,9 @@ document.addEventListener('DOMContentLoaded', () => {
     handleHeaderScroll();
     activateNavLink();
 
-    if (window.scrollY > 400) {
+    if (backToTop && window.scrollY > 400) {
       backToTop.classList.add('visible');
-    } else {
+    } else if (backToTop) {
       backToTop.classList.remove('visible');
     }
   });
